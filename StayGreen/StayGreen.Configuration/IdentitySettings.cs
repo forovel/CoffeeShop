@@ -11,7 +11,13 @@ namespace StayGreen.Configuration
         {
             services.AddIdentity<User, Role>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
-                    .AddDefaultTokenProviders();
+                    .AddDefaultTokenProviders()
+                    .AddUserManager<UserManager<User>>();
+
+            services.Configure<IdentityOptions>(optrions => 
+            {
+                optrions.SignIn.RequireConfirmedEmail = false;
+            });
         }
     }
 }

@@ -9,21 +9,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Common", "StayGre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Models", "StayGreen.Models\StayGreen.Models.csproj", "{F86E799B-E766-48EE-8B8C-3C646FAEDC79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayGreen.Configuration", "StayGreen.Configuration\StayGreen.Configuration.csproj", "{412F12FE-90D5-45B3-BE0F-5991CD1D1AF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Configuration", "StayGreen.Configuration\StayGreen.Configuration.csproj", "{412F12FE-90D5-45B3-BE0F-5991CD1D1AF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayGreen.Services.Interfaces", "StayGreen.Services.Interfaces\StayGreen.Services.Interfaces.csproj", "{6E5C6E62-344E-4A09-829F-6B920EE047DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Services.Interfaces", "StayGreen.Services.Interfaces\StayGreen.Services.Interfaces.csproj", "{6E5C6E62-344E-4A09-829F-6B920EE047DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayGreen.Services", "StayGreen.Services\StayGreen.Services.csproj", "{2B0DDF64-E8F1-4C5B-9241-A7BCD0B335B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Services", "StayGreen.Services\StayGreen.Services.csproj", "{2B0DDF64-E8F1-4C5B-9241-A7BCD0B335B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayGreen.Models.Dtos", "StayGreen.Models.Dtos\StayGreen.Models.Dtos.csproj", "{1D1E0A0A-2440-40A1-9F97-82685F854107}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Models.Dtos", "StayGreen.Models.Dtos\StayGreen.Models.Dtos.csproj", "{1D1E0A0A-2440-40A1-9F97-82685F854107}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayGreen.Controllers", "StayGreen.Controllers\StayGreen.Controllers.csproj", "{090EE8EB-B264-480A-8232-8E488C79C290}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Controllers", "StayGreen.Controllers\StayGreen.Controllers.csproj", "{090EE8EB-B264-480A-8232-8E488C79C290}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Tests", "StayGreen.Tests\StayGreen.Tests.csproj", "{AD91EA99-FF6E-4452-A102-FC088D970EF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayGreen.Web.Common", "StayGreen.Web.Common\StayGreen.Web.Common.csproj", "{22F2FEFE-1E80-4CAE-B98B-5F971BAA7420}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Web.Common", "StayGreen.Web.Common\StayGreen.Web.Common.csproj", "{22F2FEFE-1E80-4CAE-B98B-5F971BAA7420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StayGreen.Tools", "StayGreen.Tools\StayGreen.Tools.csproj", "{3B941B8B-C591-458F-91C5-0DAEE68ACE74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StayGreen.Tools", "StayGreen.Tools\StayGreen.Tools.csproj", "{3B941B8B-C591-458F-91C5-0DAEE68ACE74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

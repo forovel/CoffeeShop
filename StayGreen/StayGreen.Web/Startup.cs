@@ -60,7 +60,15 @@ namespace StayGreen.Web
             app.UseCookiePolicy();
 
             //Add default data to first migration
-            seeder.Seed().Wait();
+            try
+            {
+                seeder.Seed().Wait();
+            }
+            catch (System.Exception ex)
+            {
+
+                throw;
+            }
 
             app.UseAuthentication();
 

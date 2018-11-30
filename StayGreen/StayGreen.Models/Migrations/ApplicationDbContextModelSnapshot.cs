@@ -87,15 +87,17 @@ namespace StayGreen.Models.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnName("FirstName")
-                        .HasColumnType("nvarchar")
-                        .HasMaxLength(256);
+                        .HasColumnType("nvarchar(256)");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("LastName")
                         .HasColumnName("LastName")
-                        .HasColumnType("nvarchar")
-                        .HasMaxLength(256);
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("LockoutEnabled");
 

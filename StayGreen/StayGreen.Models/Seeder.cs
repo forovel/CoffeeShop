@@ -56,35 +56,40 @@ namespace StayGreen.Models
             if (!_context.Roles.Any())
             {
                 var roles = new List<Role> {
-                    new Role {
+                    new Role
+                    {
                         Id = Roles.Superadmin,
                         Name = StringRoles.Superadmin
                     },
-                    new Role {
+                    new Role
+                    {
                         Id = Roles.Admin,
                         Name = StringRoles.Admin
                     },
-                    new Role {
+                    new Role
+                    {
                         Id = Roles.Client,
                         Name = StringRoles.Client
                     }
                 };
 
-                _context.AddRange(roles);
-                _context.SaveChanges();
+                await _context.AddRangeAsync(roles);
+                await _context.SaveChangesAsync();
             }
 
             if (!_context.Users.Any())
             {
                 var superAdmin = new User
                 {
+                    UserName = "LocoAdmin",
                     Email = "work@bizico.com",
                     FirstName = "Admin",
                     LastName = "Admin",
                     PhoneNumber = "+380000006",
                 };
 
-                await _manager.CreateAsync(superAdmin, "admin123");
+                var result = await _manager.CreateAsync(superAdmin, "Superadmin1234!");
+                //await _context.SaveChangesAsync();
 
                 var createdSuperadmin = _context.Users.FirstOrDefault();
 
@@ -102,18 +107,19 @@ namespace StayGreen.Models
                         RoleId = superadminRole.Id,
                         UserId = createdSuperadmin.Id
                     },
-                    new UserRole {
+                    new UserRole
+                    {
                         RoleId = adminRole.Id,
                         UserId = createdSuperadmin.Id
                     },
-                    new UserRole {
+                    new UserRole
+                    {
                         RoleId = clientRole.Id,
                         UserId = createdSuperadmin.Id
                     }
                 };
 
-                _context.AddRange(userRoles);
-
+                await _context.AddRangeAsync(userRoles);
                 await _context.SaveChangesAsync();
             }
         }

@@ -41,9 +41,9 @@ namespace StayGreen.Models.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar", maxLength: 256, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar", maxLength: 256, nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false)
+                    FirstName = table.Column<string>(type: "nvarchar(256)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(256)", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {
