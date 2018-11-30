@@ -18,10 +18,16 @@ namespace StayGreen.Models.Schema
 
         //Reverse navigation
         public virtual ICollection<UserRole> UserRoles { get; }
+        public virtual ICollection<UserLogin> UserLogins { get; }
+        public virtual ICollection<UserToken> UserTokens { get; }
+        public virtual ICollection<UserClaim> UserClaims { get; }
 
         public User()
         {
             UserRoles = new List<UserRole>();
+            UserLogins = new List<UserLogin>();
+            UserTokens = new List<UserToken>();
+            UserClaims = new List<UserClaim>();
         }
     }
 }

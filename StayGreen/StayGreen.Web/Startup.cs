@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using StayGreen.Configuration;
 using StayGreen.Models;
 using StayGreen.Models.Context;
-using StayGreen.Models.Schema;
 
 namespace StayGreen.Web
 {
@@ -34,7 +32,8 @@ namespace StayGreen.Web
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
-            services.AddIdentity<User, Role>().AddEntityFrameworkStores<ApplicationDbContext>().AddSignInManager();
+            //Configure Identity Settings
+            IdentitySettings.ConfigureIdentitySettings(services);
 
             //Register Dependencies of services
             WebApi.ConfigureDependencyInjection(services);
@@ -62,7 +61,7 @@ namespace StayGreen.Web
             app.UseCookiePolicy();
 
             //Add default data to first migration
-            //seeder.Seed().Wait();
+            seeder.Seed().Wait();
 
             app.UseAuthentication();
 

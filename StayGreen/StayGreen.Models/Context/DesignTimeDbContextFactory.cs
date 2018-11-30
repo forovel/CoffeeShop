@@ -11,12 +11,13 @@ namespace StayGreen.Models.Context
         {
             var appSettingsPath = args.Length != 0 && !string.IsNullOrWhiteSpace(args[0])
                 ? args[0]
-                : Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "BWork.Web");
+                : Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "StayGreen.Web");
 
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(appSettingsPath)
                 .AddJsonFile($"appsettings.json", optional: true)
                 .Build();
+
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
             var connectionString = configuration.GetConnectionString("Default");
 

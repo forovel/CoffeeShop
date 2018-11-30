@@ -8,14 +8,20 @@ namespace StayGreen.Models.ConfigurationSchema
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {
+            //Table name
+            builder.ToTable("Roles");
+
             //Key defining
             builder.HasKey(x => x.Id);
 
             //Properties
-            builder.Property(x => x.Name).HasColumnName(@"Name").HasColumnType("varchar").HasMaxLength(250);
+            builder.Property(r => r.Name).HasColumnName(@"Name").HasColumnType("varchar(256)").IsRequired(true);
 
             //Constratints
-            builder.HasIndex(u => u.Name).HasName("Index_Name").IsUnique();
+            builder.HasIndex(r => r.Name).HasName("Index_RoleName").IsUnique();
+
+            //Reverse navigation
+            builder.HasMany(r => r.RoleClaims).WithOne(r => r.Role);
 
             //Ignore properties
             builder.Ignore(x => x.IsDeleted);
