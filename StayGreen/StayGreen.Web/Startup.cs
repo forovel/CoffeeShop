@@ -2,12 +2,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StayGreen.Configuration;
 using StayGreen.Models;
-using StayGreen.Models.Context;
 
 namespace StayGreen.Web
 {
@@ -30,7 +28,8 @@ namespace StayGreen.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            //Configure connections
+            ConnectionSettings.ConfigureConnectionSettings(services, Configuration);
 
             //Configure Identity Settings
             IdentitySettings.ConfigureIdentitySettings(services);

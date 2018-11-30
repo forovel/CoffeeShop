@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\StayGreen.Models\StayGreen.Models.csproj" />
+    <ProjectReference Include="..\StayGreen.Web\StayGreen.Web.csproj" />
+  </ItemGroup>
+
 </Project>
