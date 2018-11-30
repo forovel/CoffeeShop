@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StayGreen.Web.Areas.Identity.Pages.Account
+namespace StayGreen.Web.Pages.AdminLoco
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
