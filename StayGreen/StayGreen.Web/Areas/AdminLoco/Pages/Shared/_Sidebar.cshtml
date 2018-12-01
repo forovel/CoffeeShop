@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using StayGreen.Models.Schema
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-area="AdminLoco" asp-page="/Logout" asp-route-returnUrl="@Url.Page("/Login", new { area = "" })" method="post">
+        <div>@UserManager.GetUserName(User)</div>
+        <div><button type="submit">Logout</button></div>
+    </form>
+}
+else
+{
+    <div>Not auth</div>
+}

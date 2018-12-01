@@ -98,13 +98,14 @@ namespace StayGreen.Tools
                 User superadmin;
                 if (existedUser == null)
                 {
-                    string password = "superadmin";
+                    string password = "Superadmin1234!";
 
                     superadmin = new User
                     {
                         Email = email,
                         FirstName = firstName,
-                        LastName = lastName
+                        LastName = lastName,
+                        UserName = email
                     };
                     //TODO: check if user created
                     userManager.CreateAsync(superadmin, password).Wait();

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace StayGreen.Web.Pages.AdminLoco.Panel
+namespace StayGreen.Web.Areas.AdminLoco.Pages
 {
-    public class IndexModel : PageModel
+    public class AccessDeniedModel : PageModel
     {
         public void OnGet()
         {

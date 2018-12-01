@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using StayGreen.Models.Schema;
 using System.Threading.Tasks;
 
-namespace StayGreen.Web.Pages.AdminLoco
+namespace StayGreen.Web.Areas.AdminLoco.Pages
 {
-    [AllowAnonymous]
     public class LogoutModel : PageModel
     {
         private readonly SignInManager<User> _signInManager;
@@ -28,6 +26,7 @@ namespace StayGreen.Web.Pages.AdminLoco
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
+
             if (returnUrl != null)
             {
                 return LocalRedirect(returnUrl);

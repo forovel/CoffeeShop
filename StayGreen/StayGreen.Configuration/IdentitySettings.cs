@@ -14,9 +14,19 @@ namespace StayGreen.Configuration
                     .AddDefaultTokenProviders()
                     .AddUserManager<UserManager<User>>();
 
-            services.Configure<IdentityOptions>(optrions => 
+            services.Configure<IdentityOptions>(options => 
             {
-                optrions.SignIn.RequireConfirmedEmail = false;
+                //Sing in settings
+                options.SignIn.RequireConfirmedEmail = false;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+
+                //Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
             });
         }
     }

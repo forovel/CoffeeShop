@@ -81,7 +81,7 @@ namespace StayGreen.Models
             {
                 var superAdmin = new User
                 {
-                    UserName = "LocoAdmin",
+                    UserName = "work@bizico.com",
                     Email = "work@bizico.com",
                     FirstName = "Admin",
                     LastName = "Admin",

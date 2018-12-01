@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StayGreen.Web.Pages.AdminLoco
+namespace StayGreen.Web.Areas.AdminLoco.Pages
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
@@ -77,9 +77,6 @@ namespace StayGreen.Web.Pages.AdminLoco
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-
                 var email = await _userManager.FindByEmailAsync(Input.Email);
                 var login = await _userManager.FindByEmailAsync(Input.Email);
 

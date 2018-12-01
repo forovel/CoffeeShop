@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+}
+@*@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <p>@UserManager.GetUserName(User)</p>
+}
+else
+{
+    <p>Test</p>
+}*@
+
+<p>Test</p>

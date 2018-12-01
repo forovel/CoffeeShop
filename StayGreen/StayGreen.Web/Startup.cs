@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StayGreen.Configuration;
 using StayGreen.Models;
+using System;
 
 namespace StayGreen.Web
 {
@@ -39,7 +40,27 @@ namespace StayGreen.Web
 
             services.AddTransient<Seeder>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/AdminLoco/Login";
+                options.LogoutPath = $"/AdminLoco/Logout";
+                options.AccessDeniedPath = $"/AdminLoco/AccessDenied";
+                options.Cookie.Name = "stay_green_cookie";
+                options.Cookie.HttpOnly = true;
+                //
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                //Creates new cookie pre request
+                options.SlidingExpiration = true;
+
+                options.Cookie.Expiration = TimeSpan.FromDays(14);
+            });
+
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.AllowAreas = true;
+                options.Conventions.AuthorizeAreaPage("AdminLoco", "/Logout");
+
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,15 +81,7 @@ namespace StayGreen.Web
             app.UseCookiePolicy();
 
             //Add default data to first migration
-            try
-            {
-                seeder.Seed().Wait();
-            }
-            catch (System.Exception ex)
-            {
-
-                throw;
-            }
+            seeder.Seed().Wait();
 
             app.UseAuthentication();
 
