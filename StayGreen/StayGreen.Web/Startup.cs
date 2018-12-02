@@ -85,6 +85,8 @@ namespace StayGreen.Web
 
             app.UseAuthentication();
 
+            app.UseStatusCodePagesWithReExecute("/Error", "?statusCode={0}");
+
             app.UseMvc();
         }
     }

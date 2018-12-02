@@ -11,9 +11,10 @@ namespace StayGreen.Web.Pages
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
-        public void OnGet()
+        public void OnGet(int? statusCode = 0)
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+            //RequestId = statusCode.ToString();
         }
     }
 }
