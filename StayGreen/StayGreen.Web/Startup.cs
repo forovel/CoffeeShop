@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StayGreen.Common.Settings;
 using StayGreen.Configuration;
 using StayGreen.Models;
 using System;
@@ -37,6 +38,8 @@ namespace StayGreen.Web
 
             //Register Dependencies of services
             WebApi.ConfigureDependencyInjection(services);
+
+            services.Configure<AppSettings>(Configuration);
 
             services.AddTransient<Seeder>();
 
