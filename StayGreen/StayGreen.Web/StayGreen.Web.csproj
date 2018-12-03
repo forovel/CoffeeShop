@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StayGreen.Configuration\StayGreen.Configuration.csproj" />
-    <ProjectReference Include="..\StayGreen.Models\StayGreen.Models.csproj" />
+    <ProjectReference Include="..\StayGreen.Models.Dtos\StayGreen.Models.Dtos.csproj" />
     <ProjectReference Include="..\StayGreen.Web.Common\StayGreen.Web.Common.csproj" />
   </ItemGroup>
 
