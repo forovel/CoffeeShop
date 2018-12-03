@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using StayGreen.Services;
+using StayGreen.Services.Interfaces;
 
 namespace StayGreen.Configuration
 {
@@ -6,7 +8,7 @@ namespace StayGreen.Configuration
     {
         public static void ConfigureDependencyInjection(IServiceCollection services)
         {
-
+            services.AddTransient<IEmailService, EmailService>();
         }
     }
 }

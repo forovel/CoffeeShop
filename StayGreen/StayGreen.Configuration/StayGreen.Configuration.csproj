@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StayGreen.Models\StayGreen.Models.csproj" />
+    <ProjectReference Include="..\StayGreen.Services\StayGreen.Services.csproj" />
   </ItemGroup>
 
 </Project>
