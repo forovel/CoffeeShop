@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace StayGreen.Web.Common.Middlewares
 {
-    public class MvpExceptionHandlerMiddleware
+    public class MvcExceptionHandlerMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly IOptions<AppSettings> _options;
 
-        public MvpExceptionHandlerMiddleware(
+        public MvcExceptionHandlerMiddleware(
             RequestDelegate next,
             IOptions<AppSettings> options
             )

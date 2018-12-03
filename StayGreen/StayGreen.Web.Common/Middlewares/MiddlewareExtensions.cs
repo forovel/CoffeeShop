@@ -6,7 +6,7 @@ namespace StayGreen.Web.Common.Middlewares
     {
         public static IApplicationBuilder UseStayGreenMvcExceptionHandler(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<MvpExceptionHandlerMiddleware>();
+            return builder.UseMiddleware<MvcExceptionHandlerMiddleware>();
         }
 
         public static IApplicationBuilder UseStayGreenWebApiExceptionHandler(this IApplicationBuilder builder)
