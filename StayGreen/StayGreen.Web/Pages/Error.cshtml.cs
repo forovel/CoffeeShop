@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
+using StayGreen.Web.Common.Helpers;
 using System.Diagnostics;
+using System.IO;
 
 namespace StayGreen.Web.Pages
 {
@@ -11,10 +14,19 @@ namespace StayGreen.Web.Pages
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
-        public void OnGet(int? statusCode = 0)
+        public void OnGet()
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-            //RequestId = statusCode.ToString();
+
+            //Response response;
+            //var json = new JsonSerializer();
+
+            //using (var sr = new StreamReader(HttpContext.Request.Body))
+            //using (var jsonTextReader = new JsonTextReader(sr))
+            //{
+            //    response = json.Deserialize<Response>(jsonTextReader);
+            //}
+            var test = HttpContext.Items["Exception"] as Response;
         }
     }
 }

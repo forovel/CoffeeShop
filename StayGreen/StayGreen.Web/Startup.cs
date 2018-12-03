@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using StayGreen.Configuration;
 using StayGreen.Models;
 using System;
+using StayGreen.Web.Common.Middlewares;
 
 namespace StayGreen.Web
 {
@@ -77,16 +78,18 @@ namespace StayGreen.Web
                 app.UseHsts();
             }
 
+            app.UseStayGreenMvcExceptionHandler();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            //Add default data to first migration
-            seeder.Seed().Wait();
-
             app.UseAuthentication();
 
-            app.UseStatusCodePagesWithReExecute("/Error", "?statusCode={0}");
+            //Add default data to first migration
+            //seeder.Seed().Wait();
+
+            //app.UseStatusCodePagesWithReExecute("/Error", "?statusCode={0}");
 
             app.UseMvc();
         }

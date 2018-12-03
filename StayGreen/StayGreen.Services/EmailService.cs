@@ -7,7 +7,7 @@ namespace StayGreen.Services
     {
         public Task SendEmail()
         {
-            return Task.CompletedTask;
+            throw new System.NotImplementedException();
         }
     }
 }

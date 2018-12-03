@@ -32,4 +32,11 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\admin\css\" />
+    <Folder Include="wwwroot\admin\images\" />
+    <Folder Include="wwwroot\admin\js\" />
+    <Folder Include="wwwroot\admin\lib\" />
+  </ItemGroup>
+
 </Project>
