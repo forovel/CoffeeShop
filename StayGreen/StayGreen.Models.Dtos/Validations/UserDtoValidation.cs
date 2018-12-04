@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using StayGreen.Models.Dtos.Dtos;
+using StayGreen.Models.Dtos.Schemas;
 
 namespace StayGreen.Models.Dtos.Validations
 {

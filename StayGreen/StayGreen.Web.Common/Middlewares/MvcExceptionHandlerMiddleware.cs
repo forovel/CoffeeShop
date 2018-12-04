@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Options;
 using StayGreen.Common.Exception;
 using StayGreen.Common.Settings;
 using StayGreen.Web.Common.Helpers;
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace StayGreen.Web.Common.Middlewares
@@ -28,8 +32,9 @@ namespace StayGreen.Web.Common.Middlewares
         {
             try
             {
+                //Test();
                 await _next(context);
-                HttpNotFoundPageExeptionGeneration(context);
+                //HttpNotFoundPageExeptionGeneration(context);
             }
             catch (StayGreenException ex)
             {
@@ -73,8 +78,6 @@ namespace StayGreen.Web.Common.Middlewares
             var currentPath = context.Request.Path.Value;
             string newPath = ReturnOfPathErorPage(context);
 
-            context.Response.Redirect(newPath);
-
             return context;
         }
 
@@ -103,6 +106,23 @@ namespace StayGreen.Web.Common.Middlewares
             }
 
             return newPath;
+        }
+
+        private void Test()
+        {
+            //Type type = Type.GetType("StayGreen.Web");
+            //Assembly asm = Assembly.GetAssembly(type);
+
+            Assembly asm = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.FullName.Contains("StayGreen.Web"));
+
+            Type type = Type.GetType("StayGreen.Web.Pages.ErrorModel, StayGreen.Web", false, true);
+
+
+            var g = Activator.CreateInstance(type, new object {  });
+
+            //g.ExecuteAsync
+
+            //var test = 0;
         }
     }
 }

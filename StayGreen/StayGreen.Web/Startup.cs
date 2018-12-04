@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -6,8 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StayGreen.Configuration;
 using StayGreen.Models;
-using System;
 using StayGreen.Web.Common.Middlewares;
+using System;
 
 namespace StayGreen.Web
 {
@@ -63,11 +64,12 @@ namespace StayGreen.Web
             });
 
             services.AddMvc().AddRazorPagesOptions(options =>
-            {
-                options.AllowAreas = true;
-                options.Conventions.AuthorizeAreaPage("AdminLoco", "/Logout");
-
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                {
+                    options.AllowAreas = true;
+                    options.Conventions.AuthorizeAreaPage("AdminLoco", "/Logout");
+                })
+                .AddFluentValidation()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,9 +83,10 @@ namespace StayGreen.Web
             //app.UseExceptionHandler("/Error");
             //app.UseHsts();
 
-            //app.UseStayGreenMvcExceptionHandler();
+            app.UseStayGreenMvcExceptionHandler();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
+
             app.UseStaticFiles();
             app.UseCookiePolicy();
 

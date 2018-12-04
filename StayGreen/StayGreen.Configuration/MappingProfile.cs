@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using StayGreen.Models.Dtos;
+using StayGreen.Models.Dtos.Schemas;
 using StayGreen.Models.Schema;
 
 namespace StayGreen.Configuration

@@ -1,6 +1,6 @@
 ﻿using StayGreen.Models.Dtos.Common;
 
-namespace StayGreen.Models.Dtos.Dtos
+namespace StayGreen.Models.Dtos.Schemas
 {
     public class UserDto : BaseDto
     {

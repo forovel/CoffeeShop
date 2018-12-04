@@ -10,6 +10,7 @@ namespace StayGreen.Web.Pages
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class ErrorModel : PageModel
     {
+
         public string RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
@@ -28,5 +29,7 @@ namespace StayGreen.Web.Pages
             //}
             var test = HttpContext.Items["Exception"] as Response;
         }
+
+
     }
 }
