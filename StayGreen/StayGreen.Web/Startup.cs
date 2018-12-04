@@ -42,6 +42,12 @@ namespace StayGreen.Web
             //Application settings such as default seeder, sttings from json file, ext.
             ApplicationSettings.ConfigureApplicationSettings(services, Configuration);
 
+            //Add auto mapper configuration
+            MappingProfile.InitMappingProfile();
+
+            //Add fluent validation rules and settings
+            FluentValidationSettings.CofidureFluentValidationDependencyInjection(services);
+
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = $"/AdminLoco/Login";
@@ -53,7 +59,6 @@ namespace StayGreen.Web
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
                 //Creates new cookie pre request
                 options.SlidingExpiration = true;
-
                 options.Cookie.Expiration = TimeSpan.FromDays(14);
             });
 
@@ -72,13 +77,11 @@ namespace StayGreen.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
-            }
 
-            app.UseStayGreenMvcExceptionHandler();
+            //app.UseExceptionHandler("/Error");
+            //app.UseHsts();
+
+            //app.UseStayGreenMvcExceptionHandler();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

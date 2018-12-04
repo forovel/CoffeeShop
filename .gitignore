@@ -328,3 +328,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Dev appsettings.json
+/StayGreen/StayGreen.Web/appsettings.dev.json
+/StayGreen/StayGreen.Web/appsettings.Development.json

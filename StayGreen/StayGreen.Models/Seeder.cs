@@ -89,12 +89,8 @@ namespace StayGreen.Models
                 };
 
                 var result = await _manager.CreateAsync(superAdmin, "Superadmin1234!");
-                //await _context.SaveChangesAsync();
 
                 var createdSuperadmin = _context.Users.FirstOrDefault();
-
-                //_context.Users.Add(superAdmin);
-                // _context.SaveChanges();
 
                 var superadminRole = _context.Roles.FirstOrDefault(x => x.Name == StringRoles.Superadmin);
                 var adminRole = _context.Roles.FirstOrDefault(x => x.Name == StringRoles.Admin);
