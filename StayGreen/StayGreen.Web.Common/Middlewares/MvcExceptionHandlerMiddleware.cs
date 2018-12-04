@@ -1,15 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using StayGreen.Common.Exception;
 using StayGreen.Common.Settings;
 using StayGreen.Web.Common.Helpers;
 using System;
 using System.Globalization;
-using System.Linq;
 using System.Net;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace StayGreen.Web.Common.Middlewares
@@ -18,65 +14,46 @@ namespace StayGreen.Web.Common.Middlewares
     {
         private readonly RequestDelegate _next;
         private readonly IOptions<AppSettings> _options;
+        private MvcResponse _response;
 
         public MvcExceptionHandlerMiddleware(
             RequestDelegate next,
-            IOptions<AppSettings> options
+            IOptions<AppSettings> options,
+            MvcResponse response
             )
         {
             _next = next;
             _options = options;
+            _response = response;
         }
 
         public async Task InvokeAsync(HttpContext context)
         {
             try
             {
-                //Test();
                 await _next(context);
-                //HttpNotFoundPageExeptionGeneration(context);
+
+                _response.ShowResponse = false;
+
+                HttpNotFoundPageExeptionGeneration(context);
             }
             catch (StayGreenException ex)
             {
-                var responseMessage = GenerateDeveloperResponse(ex);
-                TemporaryRedirect(context, responseMessage);
+                GenerateDeveloperResponse(ex);
+                TemporaryRedirect(context);
             }
             catch (Exception ex)
             {
-                var responseMessage = GenerateResponse();
-                TemporaryRedirect(context, responseMessage);
+                GenerateResponse();
+                TemporaryRedirect(context);
             }
         }
 
-        private Response GenerateResponse()
+        private HttpContext TemporaryRedirect(HttpContext context)
         {
-            var resp = new Response
-            {
-                ErrorCode = 1,
-                StatusCode = 400,
-                UserMessage = "Something bad happened"
-            };
-
-            return resp;
-        }
-
-        private Response GenerateDeveloperResponse(StayGreenException ex)
-        {
-            var resp = new DeveloperResponse
-            {
-                ErrorCode = ex.ErrorCode,
-                StatusCode = ex.StatusCode,
-                UserMessage = ex.UserMessage,
-                DeveloperMessage = ex.Message
-            };
-
-            return resp;
-        }
-
-        private HttpContext TemporaryRedirect(HttpContext context, Response response)
-        {
-            var currentPath = context.Request.Path.Value;
             string newPath = ReturnOfPathErorPage(context);
+
+            context.Response.Redirect(newPath);
 
             return context;
         }
@@ -87,6 +64,7 @@ namespace StayGreen.Web.Common.Middlewares
             {
                 string path = ReturnOfPathErorPage(context);
                 context.Response.Redirect(path);
+                GenerateNotFoundResponse();
             }
         }
 
@@ -108,21 +86,31 @@ namespace StayGreen.Web.Common.Middlewares
             return newPath;
         }
 
-        private void Test()
+        private void GenerateResponse()
         {
-            //Type type = Type.GetType("StayGreen.Web");
-            //Assembly asm = Assembly.GetAssembly(type);
+            _response.ErrorCode = 1;
+            _response.StatusCode = (int)HttpStatusCode.BadRequest;
+            _response.UserMessage = "Something bad happened";
+            _response.DeveloperMessage = null;
+            _response.ShowResponse = true;
+        }
 
-            Assembly asm = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.FullName.Contains("StayGreen.Web"));
+        private void GenerateNotFoundResponse()
+        {
+            _response.ErrorCode = 2;
+            _response.StatusCode = (int)HttpStatusCode.NotFound;
+            _response.UserMessage = "Page not found";
+            _response.DeveloperMessage = null;
+            _response.ShowResponse = true;
+        }
 
-            Type type = Type.GetType("StayGreen.Web.Pages.ErrorModel, StayGreen.Web", false, true);
-
-
-            var g = Activator.CreateInstance(type, new object {  });
-
-            //g.ExecuteAsync
-
-            //var test = 0;
+        private void GenerateDeveloperResponse(StayGreenException ex)
+        {
+            _response.ErrorCode = ex.ErrorCode;
+            _response.StatusCode = ex.StatusCode;
+            _response.UserMessage = ex.UserMessage;
+            _response.DeveloperMessage = ex.Message;
+            _response.ShowResponse = true;
         }
     }
 }

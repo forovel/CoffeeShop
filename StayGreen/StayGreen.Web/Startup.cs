@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StayGreen.Configuration;
 using StayGreen.Models;
+using StayGreen.Web.Common.Helpers;
 using StayGreen.Web.Common.Middlewares;
 using System;
 
@@ -63,12 +64,14 @@ namespace StayGreen.Web
                 options.Cookie.Expiration = TimeSpan.FromDays(14);
             });
 
+            services.AddSingleton<MvcResponse>();
+
             services.AddMvc().AddRazorPagesOptions(options =>
                 {
                     options.AllowAreas = true;
                     options.Conventions.AuthorizeAreaPage("AdminLoco", "/Logout");
                 })
-                .AddFluentValidation()
+                //.AddFluentValidation()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -79,16 +82,19 @@ namespace StayGreen.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                //app.UseStayGreenMvcExceptionHandler();
+                //app.UseHsts();
+            }
 
-            //app.UseExceptionHandler("/Error");
-            //app.UseHsts();
-
-            app.UseStayGreenMvcExceptionHandler();
-
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseStayGreenMvcExceptionHandler();
+            app.UseHsts();
 
             app.UseAuthentication();
 

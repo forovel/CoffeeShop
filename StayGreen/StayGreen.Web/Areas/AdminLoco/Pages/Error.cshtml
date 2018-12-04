@@ -14,6 +14,18 @@
     </p>
 }
 
+@if (Model.ResponseObject.ShowResponse)
+{
+    <div><p>@Model.ResponseObject.ErrorCode<p></div>
+    <div><p>@Model.ResponseObject.StatusCode<p></div>
+    <div><p>@Model.ResponseObject.UserMessage<p></div>
+
+    if (Model.ResponseObject.DeveloperMessage != null)
+    {
+        <div><p>@Model.ResponseObject.DeveloperMessage<p></div>
+    }
+}
+
 <h3>Development Mode</h3>
 <p>
     Swapping to <strong>Development</strong> environment will display more detailed
