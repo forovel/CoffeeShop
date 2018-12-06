@@ -85,17 +85,14 @@ namespace StayGreen.Web
             }
             else
             {
-                //app.UseStayGreenMvcExceptionHandler();
-                //app.UseHsts();
+                app.UseStayGreenMvcExceptionHandler();
+                app.UseHsts();
             }
 
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
-            app.UseStayGreenMvcExceptionHandler();
-            app.UseHsts();
 
             app.UseAuthentication();
 

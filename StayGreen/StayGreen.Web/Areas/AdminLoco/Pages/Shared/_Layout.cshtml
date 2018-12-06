@@ -1,15 +1,14 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Testf for check view</title>
+    <partial name="_Head">
 </head>
 <body>
     <partial name="_Sidebar">
     <div>
         @RenderBody()
     </div>
+    <partial name="_ScriptsPartial">
     @RenderSection("Scripts", required: false)
 </body>
 </html>
