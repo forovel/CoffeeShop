@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using StayGreen.Common.Exception;
 using StayGreen.Common.Settings;
+using StayGreen.Web.Common.Constants;
 using StayGreen.Web.Common.Helpers;
 using System;
 using System.Globalization;
@@ -72,15 +73,13 @@ namespace StayGreen.Web.Common.Middlewares
         {
             string newPath;
 
-            if (context.Request.Path.Value.Contains("/AdminLoco/"))
+            if (context.Request.Path.Value.Contains(MvcProjectRoutes.AdminArea))
             {
-                var errorPath = "/AdminLoco/Error";
-                newPath = new PathString(string.Format(CultureInfo.InvariantCulture, errorPath));
+                newPath = new PathString(string.Format(CultureInfo.InvariantCulture, MvcProjectRoutes.AdminError));
             }
             else
             {
-                var errorPath = "/Error";
-                newPath = new PathString(string.Format(CultureInfo.InvariantCulture, errorPath));
+                newPath = new PathString(string.Format(CultureInfo.InvariantCulture, MvcProjectRoutes.Error));
             }
 
             return newPath;

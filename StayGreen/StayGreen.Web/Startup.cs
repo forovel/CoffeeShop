@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StayGreen.Configuration;
 using StayGreen.Models;
+using StayGreen.Web.Common.Constants;
 using StayGreen.Web.Common.Helpers;
 using StayGreen.Web.Common.Middlewares;
 using System;
@@ -52,9 +53,9 @@ namespace StayGreen.Web
 
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = $"/AdminLoco/Login";
-                options.LogoutPath = $"/AdminLoco/Logout";
-                options.AccessDeniedPath = $"/AdminLoco/AccessDenied";
+                options.LoginPath = MvcProjectRoutes.AdminLogin;
+                options.LogoutPath = MvcProjectRoutes.Logout;
+                options.AccessDeniedPath = MvcProjectRoutes.AdminAccessDenied;
                 options.Cookie.Name = "stay_green_cookie";
                 options.Cookie.HttpOnly = true;
                 //
@@ -69,9 +70,9 @@ namespace StayGreen.Web
             services.AddMvc().AddRazorPagesOptions(options =>
                 {
                     options.AllowAreas = true;
-                    options.Conventions.AuthorizeAreaPage("AdminLoco", "/Logout");
+                    options.Conventions.AuthorizeAreaPage(MvcProjectRoutes.AdminArea, MvcProjectRoutes.Logout);
                 })
-                //.AddFluentValidation()
+                .AddFluentValidation()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -99,9 +100,7 @@ namespace StayGreen.Web
             app.UseAuthentication();
 
             //Add default data to first migration
-            //seeder.Seed().Wait();
-
-            //app.UseStatusCodePagesWithReExecute("/Error", "?statusCode={0}");
+            seeder.Seed().Wait();
 
             app.UseMvc();
         }
