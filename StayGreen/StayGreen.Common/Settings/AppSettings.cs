@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace StayGreen.Common.Settings
+﻿namespace StayGreen.Common.Settings
 {
     public class AppSettings
     {
+        public Email Email { get; set; }
+        public FileStoreFolder FileStoreFolder { get; set; }
     }
 }

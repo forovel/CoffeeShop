@@ -46,7 +46,7 @@ namespace StayGreen.Web
             ApplicationSettings.ConfigureApplicationSettings(services, Configuration);
 
             //Add auto mapper configuration
-            MappingProfile.InitMappingProfile();
+            MappingConfiguration.InitMappingProfile();
 
             //Add fluent validation rules and settings
             FluentValidationSettings.CofidureFluentValidationDependencyInjection(services);

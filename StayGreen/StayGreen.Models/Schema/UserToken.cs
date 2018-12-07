@@ -5,6 +5,6 @@ namespace StayGreen.Models.Schema
 {
     public class UserToken : IdentityUserToken<Guid>
     {
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }

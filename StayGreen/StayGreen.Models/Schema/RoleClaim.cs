@@ -5,6 +5,6 @@ namespace StayGreen.Models.Schema
 {
     public class RoleClaim : IdentityRoleClaim<Guid>
     {
-        public Role Role { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

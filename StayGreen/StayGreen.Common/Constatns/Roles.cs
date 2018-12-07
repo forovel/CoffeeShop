@@ -18,7 +18,8 @@ namespace StayGreen.Common.Constatns
             {
                 { "Superadmin", Superadmin },
                 { "Admin", Admin },
-                { "Client", Client } };
+                { "Client", Client }
+            };
         }
 
         public static Guid? GetRoleByName(string roleName)

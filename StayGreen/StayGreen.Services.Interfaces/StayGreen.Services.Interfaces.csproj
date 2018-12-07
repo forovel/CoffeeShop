@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\StayGreen.Common\StayGreen.Common.csproj" />
+    <ProjectReference Include="..\StayGreen.Models.Dtos\StayGreen.Models.Dtos.csproj" />
+    <ProjectReference Include="..\StayGreen.Models\StayGreen.Models.csproj" />
+  </ItemGroup>
+
 </Project>

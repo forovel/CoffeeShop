@@ -14,8 +14,8 @@ namespace StayGreen.Models.Schema
         public Guid CreatedById { get; set; }
 
         //Reverse navigation
-        public ICollection<UserRole> UserRoles { get; set; }
-        public ICollection<RoleClaim> RoleClaims { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<RoleClaim> RoleClaims { get; set; }
 
         public Role()
         {

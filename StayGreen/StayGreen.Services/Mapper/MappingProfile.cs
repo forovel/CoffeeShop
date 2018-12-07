@@ -2,7 +2,7 @@
 using StayGreen.Models.Dtos.Schemas;
 using StayGreen.Models.Schema;
 
-namespace StayGreen.Configuration
+namespace StayGreen.Services
 {
     public static class MappingProfile
     {
@@ -12,6 +12,9 @@ namespace StayGreen.Configuration
             {
                 cfg.CreateMap<User, UserDto>();
                 cfg.CreateMap<UserDto, User>();
+
+                cfg.CreateMap<Attachment, AttachmentDto>();
+                cfg.CreateMap<AttachmentDto, Attachment>();
             });
         }
     }

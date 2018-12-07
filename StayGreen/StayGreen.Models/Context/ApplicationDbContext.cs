@@ -8,10 +8,12 @@ namespace StayGreen.Models.Context
 {
     public class ApplicationDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
 
-        }
+        public DbSet<Attachment> Attachments { get; set; }
+        public DbSet<AttachmentGroup> AttachmentGroups { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
