@@ -1,20 +1,94 @@
-﻿<environment include="Development">
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-</environment>
-<environment exclude="Development">
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-            asp-fallback-test="window.jQuery"
-            crossorigin="anonymous"
-            integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-    </script>
-    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-            crossorigin="anonymous"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-    </script>
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
-</environment>
+﻿<!--  Main scripts -->
+<script src="~/admin/vendors/jquery/dist/jquery.min.js"></script>
+<script src="~/admin/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="~/admin/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/admin/vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/admin/assets/js/main.js"></script>
+
+<!--  (index.html, widgets.html) -->
+<script src="~/admin/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+<script src="~/admin/assets/js/widgets.js"></script>
+
+<!--  (index.html) -->
+<script src="~/admin/assets/js/dashboard.js"></script>
+<script src="~/admin/assets/js/widgets.js"></script>
+<script src="~/admin/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="~/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+
+<!--  Chart js (charts-chartjs.html) -->
+<script src="~/admin/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+<script src="~/admin/assets/js/init-scripts/chart-js/chartjs-init.js"></script>
+
+<!-- (charts-flot.html) -->
+<script src="~/admin/vendors/flot/excanvas.min.js"></script>
+<script src="~/admin/vendors/flot/jquery.flot.js"></script>
+<script src="~/admin/vendors/flot/jquery.flot.pie.js"></script>
+<script src="~/admin/vendors/flot/jquery.flot.time.js"></script>
+<script src="~/admin/vendors/flot/jquery.flot.stack.js"></script>
+<script src="~/admin/vendors/flot/jquery.flot.resize.js"></script>
+<script src="~/admin/vendors/flot/jquery.flot.crosshair.js"></script>
+<script src="~/admin/assets/js/init-scripts/flot-chart/curvedLines.js"></script>
+<script src="~/admin/assets/js/init-scripts/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js"></script>
+<script src="~/admin/assets/js/init-scripts/flot-chart/flot-chart-init.js"></script>
+
+<!-- (charts-paity.html) -->
+<script src="~/admin/vendors/peity/jquery.peity.min.js"></script>
+<script src="~/admin/assets/js/init-scripts/peitychart/peitychart.init.js"></script>
+
+<!-- (forms-advanced.html) -->
+<script src="~/admin/vendors/chosen/chosen.jquery.min.js"></script>
+
+<!-- Gmaps (maps-gmap.html) -->
+<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2jlT6C_to6X1mMvR9yRWeRvpIgTXgddM"></script>
+<script src="~/admin/vendors/gmaps/gmaps.min.js"></script>
+<script src="~/admin/assets/js/init-scripts/gmap/gmap.init.js"></script>
+
+<!-- Vector maps (maps-vector.html) -->
+<script src="~/admin/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="~/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.algeria.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.argentina.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.brazil.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.france.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.germany.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.greece.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.iran.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.iraq.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.russia.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.tunisia.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.europe.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
+<!-- scripit init-->
+<script src="~/admin/vendors/jqvmap/dist/maps/jquery.vmap.turkey.js"></script>
+<!-- scripit init-->
+<script src="~/admin/assets/js/init-scripts/vector-map/vector.init.js"></script>
+
+<!-- (tables-data.html) -->
+<script src="~/admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/admin/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/admin/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+<script src="~/admin/vendors/jszip/dist/jszip.min.js"></script>
+<script src="~/admin/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="~/admin/vendors/pdfmake/build/vfs_fonts.js"></script>
+<script src="~/admin/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="~/admin/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="~/admin/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+<script src="~/admin/assets/js/init-scripts/data-table/datatables-init.js"></script>

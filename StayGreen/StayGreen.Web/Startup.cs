@@ -97,7 +97,7 @@ namespace StayGreen.Web
             app.UseAuthentication();
 
             //Add default data to first migration
-            seeder.Seed().Wait();
+            //seeder.Seed().Wait();
 
             app.UseMvc();
         }

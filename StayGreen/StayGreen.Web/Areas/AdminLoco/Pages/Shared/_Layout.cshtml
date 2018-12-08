@@ -1,11 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <partial name="_Head">
+    <partial name="_HeadPartial">
+    <partial name="_CssFilesPartial">
 </head>
 <body>
-    <partial name="_Sidebar">
-    <div>
+    <partial name="_SidebarPartial">
+    <div id="right-panel" class="right-panel">
+        <partial name="_HeaderPartial">
+        <partial name="_BreadcrumbsPartial">
         @RenderBody()
     </div>
     <partial name="_ScriptsPartial">
