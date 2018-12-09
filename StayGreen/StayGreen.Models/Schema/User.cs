@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using StayGreen.Models.Common;
+using StayGreen.Models.Schema.Common;
 using System;
 using System.Collections.Generic;
 

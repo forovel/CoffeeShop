@@ -1,4 +1,4 @@
-﻿namespace StayGreen.Models.Common
+﻿namespace StayGreen.Models.Schema.Common
 {
     public abstract class NamedEntity<T> : Entity<T>
     {

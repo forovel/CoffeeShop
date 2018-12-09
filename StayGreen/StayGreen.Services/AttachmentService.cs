@@ -8,6 +8,7 @@ using StayGreen.Common.Query;
 using StayGreen.Common.Settings;
 using StayGreen.Models.Context;
 using StayGreen.Models.Dtos.Schemas;
+using StayGreen.Models.Dtos.Schemas.Attachments;
 using StayGreen.Models.Schema;
 using StayGreen.Services.Code;
 using StayGreen.Services.Common;
@@ -21,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace StayGreen.Services
 {
-    public class AttachmentService : BaseService<Attachment, AttachmentDto, AttachmentDto, AttachmentDto>, IAttachmentService
+    public class AttachmentService : BaseService<Attachment, AttachmentReadDto, AttachmentDto, AttachmentDto>, IAttachmentService
     {
         private readonly ISecurityService _securityService;
         private readonly IUserService _userService;
@@ -44,12 +45,12 @@ namespace StayGreen.Services
             _appEnvironment = appEnvironment;
         }
 
-        public override PaginatedList<AttachmentDto> GetFiltered(IQueryOptions queryOptions)
+        public override PaginatedList<AttachmentReadDto> GetFiltered(IQueryOptions queryOptions)
         {
             var qo = queryOptions ?? new EmptyQueryOptions();
 
             var items = DbContext.Attachments.Include(d => d.AttachmentGroup).Where(x => !x.IsDeleted)
-                .Select(x => new AttachmentDto
+                .Select(x => new AttachmentReadDto
                 {
                     Id = x.Id,
                     Name = x.Name,
@@ -63,7 +64,7 @@ namespace StayGreen.Services
                 items = items.ApplySorting(qo.SortOptions);
             }
 
-            var paginatedResult = items.ApplyPagination<AttachmentDto, AttachmentDto>(qo.PagingOptions);
+            var paginatedResult = items.ApplyPagination<AttachmentReadDto, AttachmentReadDto>(qo.PagingOptions);
 
             return paginatedResult;
         }

@@ -26,6 +26,8 @@ namespace StayGreen.Models.Context
             builder.ApplyConfiguration(new UserClaimConfiguration());
             builder.ApplyConfiguration(new UserLoginConfiguration());
             builder.ApplyConfiguration(new UserTokenConfiguration());
+            builder.ApplyConfiguration(new AttachmentConfiguration());
+            builder.ApplyConfiguration(new AttachmentGroupConfiguration());
         }
 
         public override void Dispose()

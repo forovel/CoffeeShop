@@ -1,6 +1,7 @@
-﻿using StayGreen.Models.Common;
-using StayGreen.Models.Enums;
+﻿using StayGreen.Models.Enums;
+using StayGreen.Models.Schema.Common;
 using System;
+using System.Collections.Generic;
 
 namespace StayGreen.Models.Schema
 {
@@ -16,6 +17,12 @@ namespace StayGreen.Models.Schema
         public string Email { get; set; }
         public OrderStatus Status { get; set; }
 
-        public virtual Product Product { get; set; }
+        //Reverse navigation
+        public virtual ICollection<ProductOrder> ProductsOrders { get; set; }
+
+        public Order()
+        {
+            ProductsOrders = new List<ProductOrder>();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StayGreen.Models.Common
+namespace StayGreen.Models.Schema.Common
 {
     public interface IEntity<T>
     {

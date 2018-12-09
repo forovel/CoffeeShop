@@ -5,6 +5,7 @@ namespace StayGreen.Models.Schema
 {
     public class UserClaim : IdentityUserClaim<Guid>
     {
+        //Foreign keys
         public virtual User User { get; set; }
     }
 }
