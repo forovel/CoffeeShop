@@ -15,10 +15,10 @@ namespace StayGreen.Models.ConfigurationSchema
             builder.ToTable("AttachmentGroups");
 
             //Properties
-            builder.Property(x => x.Description).HasColumnName(@"Description").HasColumnType(@"nvarchar(512)").IsRequired(false);
+            builder.Property(x => x.Description).HasColumnName("Description").HasColumnType("nvarchar(512)").IsRequired(false);
 
             //Reverse navigation
-            builder.HasMany(x => x.Attachments).WithOne(x => x.AttachmentGroup);
+            builder.HasMany(x => x.Attachments).WithOne(x => x.AttachmentGroup).HasForeignKey(x => x.AttachmentGroupId);
         }
     }
 }

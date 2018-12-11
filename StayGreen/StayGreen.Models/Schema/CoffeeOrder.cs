@@ -2,13 +2,13 @@
 
 namespace StayGreen.Models.Schema
 {
-    public class ProductOrder
+    public class CoffeeOrder
     {
-        public Guid ProductId { get; set; }
+        public Guid CoffeeId { get; set; }
         public Guid OrderId { get; set; }
 
         //Foreign keys
-        public virtual Product Product { get; set; }
+        public virtual Coffee Coffee { get; set; }
         public virtual Order Order { get; set; }
     }
 }

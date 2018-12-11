@@ -6,6 +6,8 @@ namespace StayGreen.Models.Schema
 {
     public class CoffeePreparation : NamedEntity<Guid>
     {
+        public Guid AttachmentId { get; set; }
+
         //Foreign keys
         public virtual Attachment Picture { get; set; }
 

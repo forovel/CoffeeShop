@@ -1,5 +1,6 @@
 ﻿using StayGreen.Models.Schema.Common;
 using System;
+using System.Collections.Generic;
 
 namespace StayGreen.Models.Schema
 {
@@ -9,6 +10,15 @@ namespace StayGreen.Models.Schema
         public string Path { get; set; }
         public Guid AttachmentGroupId { get; set; }
 
+
         public virtual AttachmentGroup AttachmentGroup { get; set; }
+
+        //Reverse navigation
+        public virtual ICollection<AttachmentCoffee> AttachmentsCoffee { get; set; }
+
+        public Attachment()
+        {
+            AttachmentsCoffee = new List<AttachmentCoffee>();
+        }
     }
 }
