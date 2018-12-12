@@ -12,7 +12,6 @@ namespace StayGreen.Models.Context
 
         public DbSet<Attachment> Attachments { get; set; }
         public DbSet<AttachmentGroup> AttachmentGroups { get; set; }
-        public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

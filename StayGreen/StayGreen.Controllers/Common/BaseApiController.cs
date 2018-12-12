@@ -2,7 +2,7 @@
 
 namespace StayGreen.Controllers.Common
 {
-    [Route("api/{controller}")]
+    [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
     public class BaseApiController : ControllerBase 

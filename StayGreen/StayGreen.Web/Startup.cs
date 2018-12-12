@@ -99,6 +99,14 @@ namespace StayGreen.Web
             //Add default data to first migration
             //seeder.Seed().Wait();
 
+            //app.UseMvc(routes => 
+            //{
+            //    routes.MapRoute(
+            //        name: "DefaultApiRoute",
+            //        template: "api/{controller}/{action}/{id?}"
+            //        );
+            //});
+
             app.UseMvc();
         }
     }

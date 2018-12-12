@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using StayGreen.Common.Query;
-using StayGreen.Models.Common;
+using StayGreen.Models.Schema.Common;
 using StayGreen.Models.Context;
 using StayGreen.Services.Interfaces;
 using StayGreen.Services.Interfaces.Common;

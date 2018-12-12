@@ -29,7 +29,7 @@ namespace StayGreen.Models.ConfigurationSchema
             builder.HasOne(x => x.Category).WithMany(x => x.Coffee).HasForeignKey(x => x.CoffeeCategoryId);
 
             //Reverse navigation
-            builder.HasMany(x => x.At)
+            //builder.HasMany(x => x.At)
 
         }
     }
