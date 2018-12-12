@@ -26,13 +26,11 @@ namespace StayGreen.Models.Schema
         //Reverse navigation
         public virtual ICollection<AttachmentCoffee> AttachmentsCoffee { get; set; }
         public virtual ICollection<CoffeePreparationCoffee> CoffeePreparationCoffee { get; set; }
-        public virtual ICollection<CoffeeOrder> CoffeeOrders { get; set; }
 
         public Coffee()
         {
             AttachmentsCoffee = new List<AttachmentCoffee>();
             CoffeePreparationCoffee = new List<CoffeePreparationCoffee>();
-            CoffeeOrders = new List<CoffeeOrder>();
         }
     }
 }

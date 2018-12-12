@@ -18,11 +18,11 @@ namespace StayGreen.Models.Schema
         public OrderStatus Status { get; set; }
 
         //Reverse navigation
-        public virtual ICollection<CoffeeOrder> CoffeeOrders { get; set; }
+        public virtual ICollection<OrderedCoffee> OrderedCoffee { get; set; }
 
         public Order()
         {
-            CoffeeOrders = new List<CoffeeOrder>();
+            OrderedCoffee = new List<OrderedCoffee>();
         }
     }
 }

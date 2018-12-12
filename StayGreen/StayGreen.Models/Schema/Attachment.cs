@@ -10,7 +10,7 @@ namespace StayGreen.Models.Schema
         public string Path { get; set; }
         public Guid AttachmentGroupId { get; set; }
 
-
+        //Foreign keys
         public virtual AttachmentGroup AttachmentGroup { get; set; }
 
         //Reverse navigation
