@@ -1,10 +1,13 @@
 ﻿namespace StayGreen.Models.Enums
 {
-    public enum FileCategory
+    public enum FileCategoryType
     {
-        Picture,
-        Document,
-        Audio
+        Avatars,
+        Icons,
+        Videos,
+        Images,
+        Documents,
+        Audios
     }
 
     public enum FileMimeType

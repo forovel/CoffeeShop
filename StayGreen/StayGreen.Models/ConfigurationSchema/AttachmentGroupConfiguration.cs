@@ -15,6 +15,7 @@ namespace StayGreen.Models.ConfigurationSchema
             builder.ToTable("AttachmentGroups");
 
             //Properties
+            builder.Property(x => x.CategoryType).HasColumnName("CategoryType").HasColumnType("int").IsRequired(true);
             builder.Property(x => x.Description).HasColumnName("Description").HasColumnType("nvarchar(512)").IsRequired(false);
 
             //Reverse navigation

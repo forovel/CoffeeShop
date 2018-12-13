@@ -6,6 +6,7 @@ using StayGreen.Services.Interfaces;
 using StayGreen.Services.Interfaces.Common;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace StayGreen.Services.Common
 {
@@ -38,7 +39,7 @@ namespace StayGreen.Services.Common
             return dto;
         }
 
-        public virtual TCreateDto Create(TCreateDto model)
+        public virtual async Task<TCreateDto> Create(TCreateDto model)
         {
             var dbModel = Mapper.Map<TCreateDto, T>(model);
             dbModel.DateCreated = DateTime.Now;
@@ -47,29 +48,29 @@ namespace StayGreen.Services.Common
             dbModel.UpdatedById = UserWrapper.Id;
 
             DbContext.Set<T>().Add(dbModel);
-            DbContext.SaveChanges();
+            await DbContext.SaveChangesAsync();
 
             return model;
         }
 
-        public virtual TUpdateDto Update(Guid id, TUpdateDto model)
+        public virtual async Task<TUpdateDto> Update(Guid id, TUpdateDto model)
         {
             var dbitem = DbContext.Set<T>().Find(id);
             dbitem.DateUpdated = DateTime.Now;
             dbitem.UpdatedById = UserWrapper.Id;
             var dto = Mapper.Map<T, TUpdateDto>(dbitem);
 
-            DbContext.SaveChanges();
+            await DbContext.SaveChangesAsync();
 
             return dto;
         }
 
-        public virtual void Delete(Guid id)
+        public virtual async Task Delete(Guid id)
         {
             var dbitem = DbContext.Set<T>().Find(id);
             dbitem.IsDeleted = true;
 
-            DbContext.SaveChanges();
+            await DbContext.SaveChangesAsync();
         }
     }
 }

@@ -4,7 +4,8 @@ using System;
 
 namespace StayGreen.Services.Interfaces
 {
-    public interface ICoffeeService : IBaseService<Coffee, Coffee, Coffee, Guid>
+    public interface ICoffeePreparationService : IBaseService<CoffeePreparation, CoffeePreparation, CoffeePreparation, Guid>
     {
+
     }
 }

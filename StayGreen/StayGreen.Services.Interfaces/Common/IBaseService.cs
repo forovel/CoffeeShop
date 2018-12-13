@@ -1,5 +1,5 @@
 ﻿using StayGreen.Common.Query;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace StayGreen.Services.Interfaces.Common
 {
@@ -7,12 +7,12 @@ namespace StayGreen.Services.Interfaces.Common
     {
         PaginatedList<TReadDto> GetFiltered(IQueryOptions queryOptions);
 
-        TCreateDto Create(TCreateDto model);
+        Task<TCreateDto> Create(TCreateDto model);
 
-        TUpdateDto Update(TId id, TUpdateDto model);
+        Task<TUpdateDto> Update(TId id, TUpdateDto model);
 
         TReadDto GetById(TId id);
 
-        void Delete(TId id);
+        Task Delete(TId id);
     }
 }

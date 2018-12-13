@@ -7,5 +7,6 @@ namespace StayGreen.Models.Dtos.Schemas
     {
         public string Description { get; set; }
         public string Path { get; set; }
+        public string MimeType { get; set; }
     }
 }

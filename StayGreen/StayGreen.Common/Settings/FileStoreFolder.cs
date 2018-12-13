@@ -6,5 +6,7 @@
         public string AudioPath { get; set; }
         public string ImagesPath { get; set; }
         public string AvatarsPath { get; set; }
+        public string IconsPath { get; set; }
+        public string VideosPath { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace StayGreen.Models.Schema
     {
         public string Description { get; set; }
         public string Path { get; set; }
+        public string MimeType { get; set; }
         public Guid AttachmentGroupId { get; set; }
 
         //Foreign keys
