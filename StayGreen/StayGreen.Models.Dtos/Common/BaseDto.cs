@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace StayGreen.Models.Dtos.Common
+﻿namespace StayGreen.Models.Dtos.Common
 {
-    public abstract class BaseDto
+    public abstract class BaseDto<T>
     {
-        public Guid Id { get; set; }
+        public T Id { get; set; }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using StayGreen.Models.Dtos.Common;
+using System;
 
 namespace StayGreen.Models.Dtos.Schemas
 {
-    public class UserDto : BaseDto
+    public class UserDto : BaseDto<Guid>
     {
         public string Email { get; set; }
         public string Password { get; set; }

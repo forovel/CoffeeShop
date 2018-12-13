@@ -1,6 +1,6 @@
 ﻿namespace StayGreen.Models.Enums
 {
-    public enum OrderStatus
+    public enum OrderStatusType
     {
         InProgress,
         Sent,

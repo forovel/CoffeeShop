@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StayGreen.Common.Constatns;
 using StayGreen.Configuration;
 using StayGreen.Models;
 using StayGreen.Web.Common.Constants;
@@ -56,7 +57,7 @@ namespace StayGreen.Web
                 options.LoginPath = MvcProjectRoutes.AdminLogin;
                 options.LogoutPath = MvcProjectRoutes.Logout;
                 options.AccessDeniedPath = MvcProjectRoutes.AdminAccessDenied;
-                options.Cookie.Name = "stay_green_cookie";
+                options.Cookie.Name = Cookies.AuthenticationCookieName;
                 options.Cookie.HttpOnly = true;
                 //
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
@@ -98,14 +99,6 @@ namespace StayGreen.Web
 
             //Add default data to first migration
             //seeder.Seed().Wait();
-
-            //app.UseMvc(routes => 
-            //{
-            //    routes.MapRoute(
-            //        name: "DefaultApiRoute",
-            //        template: "api/{controller}/{action}/{id?}"
-            //        );
-            //});
 
             app.UseMvc();
         }

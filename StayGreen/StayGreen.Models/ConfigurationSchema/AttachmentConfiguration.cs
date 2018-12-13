@@ -18,8 +18,12 @@ namespace StayGreen.Models.ConfigurationSchema
             builder.Property(x => x.Description).HasColumnName("Description").HasColumnType("nvarchar(512)").IsRequired(false);
             builder.Property(x => x.Path).HasColumnName("Path").HasColumnType("varchar(4000)").IsRequired(true);
 
-            //Reverse navigation
+            //Foreign keys
             builder.HasOne(x => x.AttachmentGroup).WithMany(x => x.Attachments).HasForeignKey(x => x.AttachmentGroupId);
+
+            //Reverse navigation
+            builder.HasMany(x => x.OrderedCoffee).WithOne(x => x.Attachment).HasForeignKey(x => x.AttachmentId).OnDelete(DeleteBehavior.SetNull);
+            builder.HasMany(x => x.CoffeePreparations).WithOne(x => x.Attachment).HasForeignKey(x => x.AttachmentId).OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

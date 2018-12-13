@@ -15,10 +15,14 @@ namespace StayGreen.Models.Schema
 
         //Reverse navigation
         public virtual ICollection<AttachmentCoffee> AttachmentsCoffee { get; set; }
+        public virtual ICollection<CoffeePreparation> CoffeePreparations { get; set; }
+        public virtual ICollection<OrderedCoffee> OrderedCoffee { get; set; }
 
         public Attachment()
         {
             AttachmentsCoffee = new List<AttachmentCoffee>();
+            CoffeePreparations = new List<CoffeePreparation>();
+            OrderedCoffee = new List<OrderedCoffee>();
         }
     }
 }

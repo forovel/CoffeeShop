@@ -15,13 +15,13 @@ namespace StayGreen.Models.ConfigurationSchema
             builder.HasKey(x => x.Id);
 
             //Properties
-            builder.Property(r => r.Name).HasColumnName(@"Name").HasColumnType("varchar(256)").IsRequired(true);
+            builder.Property(x => x.Name).HasColumnName(@"Name").HasColumnType("varchar(256)").IsRequired(true);
 
             //Constratints
-            builder.HasIndex(r => r.Name).HasName("Index_RoleName").IsUnique();
+            builder.HasIndex(x => x.Name).HasName("Index_RoleName").IsUnique();
 
             //Reverse navigation
-            builder.HasMany(r => r.RoleClaims).WithOne(r => r.Role);
+            builder.HasMany(x => x.RoleClaims).WithOne(r => r.Role);
 
             //Ignore properties
             builder.Ignore(x => x.IsDeleted);
