@@ -118,7 +118,7 @@ namespace StayGreen.Services
 
         private string GetAttachmentGoupPath(FileCategoryType name)
         {
-            string path;
+            string path = string.Empty;
 
             switch (name)
             {
